@@ -17,7 +17,7 @@ const morgan = require("morgan");
 
 const app = express();
 
-const allowedOrigins = ["https://elfin-feather.surge.sh/"];
+const allowedOrigins = ["https://billowy-disgust.surge.sh"];
 
 const corsOptions = {
   origin: allowedOrigins,
