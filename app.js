@@ -17,7 +17,13 @@ const morgan = require("morgan");
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = ["https://elfin-feather.surge.sh/"];
+
+const corsOptions = {
+  origin: allowedOrigins,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
@@ -26,7 +32,6 @@ app.use("/auth", authRoutes);
 app.use("/companies", companiesRoutes);
 app.use("/users", usersRoutes);
 app.use("/jobs", jobsRoutes);
-
 
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
